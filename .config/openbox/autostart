@@ -1,0 +1,16 @@
+tint2 &
+
+# required for xfce settings to work
+xfsettingsd &
+
+compton -b &
+numlockx &
+
+feh --bg-fill ~/Pictures/walls/landscape.jpg 
+
+# fancy window switcher
+skippy-xd --config ~/.config/skippy-xd/skippy-xd.rc --start-daemon &
+
+(sleep 1; xfce4-power-manager) &
+(sleep 2; volumeicon) &
+(sleep 5; nm-applet) &
