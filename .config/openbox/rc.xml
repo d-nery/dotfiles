@@ -322,24 +322,19 @@
       </action>
     </keybind>
     <!-- Keybindings for music control -->
-    <keybind key="XF86AudioStop">
-      <action name="Execute">
-        <command>mpc stop</command>
-      </action>
-    </keybind>
     <keybind key="XF86AudioPlay">
       <action name="Execute">
-        <command>mpc toggle</command>
+        <command>playerctl play-pause</command>
       </action>
     </keybind>
     <keybind key="XF86AudioPrev">
       <action name="Execute">
-        <command>mpc prev</command>
+        <command>playerctl previous</command>
       </action>
     </keybind>
     <keybind key="XF86AudioNext">
       <action name="Execute">
-        <command>mpc next</command>
+        <command>playerctl next</command>
       </action>
     </keybind>
     <keybind key="XF86AudioRaiseVolume">
@@ -386,17 +381,12 @@
     </keybind>
     <keybind key="W-Return">
       <action name="Execute">
-        <command>termite</command>
-      </action>
-    </keybind>
-    <keybind key="W-S-Return">
-      <action name="Execute">
-        <command>urxvt</command>
+        <command>tilix</command>
       </action>
     </keybind>
     <keybind key="W-w">
       <action name="Execute">
-        <command>chromium</command>
+        <command>google-chrome-stable</command>
       </action>
     </keybind>
     <keybind key="W-x">
@@ -448,27 +438,23 @@
     <keybind key="W-Right">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
-        <x>-2/120</x>
-        <y>1/100</y>
-        <width>48/100</width>
-        <height>98/100</height>
+        <x>-1/200</x>
+        <y>1/150</y>
+        <width>49/100</width>
+        <height>99/100</height>
       </action>
     </keybind>
     <keybind key="W-Left">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
-        <x>+2/120</x>
-        <y>+1/100</y>
-        <width>48/100</width>
-        <height>98/100</height>
+        <x>+1/200</x>
+        <y>+1/150</y>
+        <width>49/100</width>
+        <height>99/100</height>
       </action>
     </keybind>
     <keybind key="W-Up">
-      <action name="UnmaximizeFull"/>
-      <action name="MoveResizeTo">
-        <width>95/100</width>
-        <height>95/100</height>
-      </action>
+      <action name="Maximize"/>
       <action name="MoveToCenter"/>
     </keybind>
     <keybind key="W-Down">

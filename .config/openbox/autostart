@@ -6,11 +6,10 @@ xfsettingsd &
 compton -b &
 numlockx &
 
-feh --bg-fill ~/Pictures/walls/landscape.jpg 
-
 # fancy window switcher
 skippy-xd --config ~/.config/skippy-xd/skippy-xd.rc --start-daemon &
 
+(sleep 0.1; feh --bg-fill ~/Pictures/walls/paint.jpg) &
 (sleep 1; xfce4-power-manager) &
 (sleep 2; volumeicon) &
 (sleep 5; nm-applet) &
