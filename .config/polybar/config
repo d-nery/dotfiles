@@ -1,15 +1,4 @@
-; @author Seth Traman
-; @file My polybar config, dumdum
-
 [colors]
-# background = #00000000
-# background-alt = #99333333
-# foreground = #dadfe1
-# foreground-alt = #555
-# primary = #5c72f4
-# secondary = #6ef9f9
-# alert = #751715
-
 background = ${xrdb:color0:#222}
 background-alt = ${xrdb:color0:#222}
 foreground = ${xrdb:color7:#222}
@@ -53,31 +42,17 @@ tray-padding = 2
 
 wm-restack = i3
 
-;override-redirect = true
-
 scroll-up = i3wm-wsprev
 scroll-down = i3wm-wsnext
 
 [module/battery]
 type = internal/battery
 
-; This is useful in case the battery never reports 100% charge
 full-at = 99
 
-; Use the following command to list batteries and adapters:
-; $ ls -1 /sys/class/power_supply/
 battery = BAT0
 adapter = AC
 
-; If an inotify event haven't been reported in this many
-; seconds, manually poll for new values.
-;
-; Needed as a fallback for systems that don't report events
-; on sysfs/procfs.
-;
-; Disable polling by setting the interval to 0.
-;
-; Default: 5
 poll-interval = 5
 
 format-discharging = <ramp-capacity> <label-discharging>
@@ -85,6 +60,9 @@ label-discharging = %percentage%%
 
 format-charging = <label-charging>
 label-charging =  %percentage%%
+
+format-full = <label-full>
+label-full = 
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -95,23 +73,6 @@ ramp-capacity-4 = 
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:64:...%
-
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
-
-format-prefix =
-format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.primary}
-
-label-layout =
-label-layout-underline = ${colors.primary}
-
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-foreground = ${colors.foreground}
-label-indicator-background = ${colors.primary}
-label-indicator-underline = ${colors.primary}
 
 [module/i3]
 type = internal/i3
@@ -229,9 +190,8 @@ format-volume = <label-volume> <bar-volume>
 label-volume = VOL
 label-volume-foreground = ${colors.foreground}
 
-format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
+label-muted = 婢
 
 bar-volume-width = 16
 bar-volume-foreground-0 = #55aa55
