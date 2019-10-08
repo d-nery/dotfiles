@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec tilix
 
 bindsym $mod+w exec firefox
 
@@ -196,7 +196,6 @@ assign [class="Code"] $ws2
 assign [class="Firefox"] $ws3
 
 exec_always --no-startup-id ~/.scripts/ui-update.sh &
-
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec --no-startup-id compton --config ~/.config/compton/config -b
-
 exec --no-startup-id unclutter --timeout 3 &

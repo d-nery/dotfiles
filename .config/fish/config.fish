@@ -21,4 +21,5 @@ set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/home/linuxbrew/.linuxbre
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [ -f /home/dnery/.config/yarn/global/node_modules/tabtab/.completions/slss.fish ]; and . /home/dnery/.config/yarn/global/node_modules/tabtab/.completions/slss.fish
 
-cat $HOME/.cache/wal/sequences & 
+cat $HOME/.cache/wal/sequences
+clear 
