@@ -2,7 +2,7 @@
 
 source ~/.profile
 
-wal -i ~/Pictures/wallpaper/endless.jpg
+wal -i ~/Pictures/wallpaper/cafe.jpg
 
 nm-applet &
 
