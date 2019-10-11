@@ -2,10 +2,9 @@
 
 source ~/.profile
 
-wal -i ~/Pictures/wallpaper/cafe.jpg
+wal -i ~/Pictures/wallpaper/alena/
 
 nm-applet &
 
 ~/.config/polybar/polybar.sh &
 ~/.config/dunst/dunst.sh
-# ~/.config/firefoxChrome.sh
