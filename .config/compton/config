@@ -18,3 +18,7 @@ no-dnd-shadow = true;
 shadow-radius = 7;
 shadow-offset-x = -7;
 shadow-offset-y = -7;
+
+shadow-exclude = [
+    'class_g = "slop"'
+]

@@ -33,7 +33,7 @@ floating_modifier $mod
 bindsym $mod+Return exec tilix
 
 # start a web browser
-bindsym $mod+w exec firefox
+bindsym $mod+w exec google-chrome-stable
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -82,8 +82,8 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1    1: 
-set $ws2    2: 
-set $ws3    3: 
+set $ws2    2: 
+set $ws3    3: 
 set $ws4    4: 
 set $ws5    5: 
 set $ws6    6: 
@@ -178,6 +178,7 @@ gaps outer 0
 
 assign [class="Code"] $ws2
 assign [class="Firefox"] $ws3
+assign [class="Google-chrome"] $ws3
 
 exec_always --no-startup-id ~/.scripts/ui-update.sh &
 exec --no-startup-id compton --config ~/.config/compton/config -b
