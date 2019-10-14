@@ -23,3 +23,5 @@ set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/home/linuxbrew/.linuxbre
 
 cat $HOME/.cache/wal/sequences
 clear 
+
+set LS_COLORS (ls_colors_generator)

@@ -86,7 +86,7 @@
 
     ### Text ###
 
-    font = "Google Sans" 9
+    font = "Ubuntu Nerd Font" 9
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -183,7 +183,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/opera -new-tab
+    browser = /usr/bin/google-chrome-stable
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
