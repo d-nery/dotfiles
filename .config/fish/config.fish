@@ -25,3 +25,4 @@ cat $HOME/.cache/wal/sequences
 clear 
 
 set LS_COLORS (ls_colors_generator)
+set -x CUBE_PATH $HOME/.opt/STM32CubeMX

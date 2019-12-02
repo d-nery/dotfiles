@@ -91,7 +91,7 @@ def main() -> int:
 
     if args.command == "list":
         for k, v in ssh_config.items():
-            print(k)
+            print(f"{k:12s} {v['HostName'] if 'HostName' in v else ''}")
         return 0
 
     if args.command == "add":
