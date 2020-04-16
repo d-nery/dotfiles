@@ -1,20 +1,37 @@
 [colors]
-background = ${xrdb:color0:#222}
-background-alt = ${xrdb:color0:#222}
-foreground = ${xrdb:color7:#222}
-foreground-alt = ${xrdb:color7:#222}
-primary = ${xrdb:color1:#222}
-secondary = ${xrdb:color2:#222}
-alert = ${xrdb:color3:#222}
+# background = ${xrdb:color0:#222}
+# background-alt = ${xrdb:color0:#222}
+# foreground = ${xrdb:color7:#222}
+# foreground-alt = ${xrdb:color7:#222}
+# primary = ${xrdb:color1:#222}
+# secondary = ${xrdb:color2:#222}
+# alert = ${xrdb:color3:#222}
 
-[bar/bottom]
-bottom = true
-width = 100%
+background = #09121D
+background-alt = #09121D
+foreground =#a8c6df
+foreground-alt =#a8c6df
+primary = #A23D6C
+secondary = #245F9A
+alert = #266FBF
+
+[opts]
+right-padding = 3
+
+[bar/top]
+bottom = false
+
+width = 100%:-18
+offset-x = 9
+offset-y = 8
+
+override-redirect = true
+
 height = 36
 radius = 0.0
 fixed-center = true
 
-background = ${colors.background}
+background = #0009121D
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -26,24 +43,25 @@ border-size = 0
 border-color = #00000000
 
 padding-left = 0
-padding-right = 4
+padding-right = 0
 
-module-margin-left = 3
-module-margin-right = 3
+module-margin-left = 0
+module-margin-right = 0
 
 font-0 = "Ubuntu Nerd Font:style=Regular:size=10:antialias=true;1"
 
 modules-left = i3 xwindow
-modules-center = date
-modules-right = pulseaudio battery memory cpu temperature powermenu
+modules-center =
+modules-right = pulseaudio battery memory cpu temperature date
 
 tray-position = right
 tray-padding = 2
+tray-background = ${colors.background}
 
 wm-restack = i3
 
-scroll-up = i3wm-wsprev
-scroll-down = i3wm-wsnext
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 [module/battery]
 type = internal/battery
@@ -56,13 +74,19 @@ adapter = AC
 poll-interval = 5
 
 format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-background = ${colors.background}
+format-discharging-padding = ${opts.right-padding}
 label-discharging = %percentage%%
 
 format-charging = <label-charging>
+format-charging-background = ${colors.background}
+format-charging-padding = ${opts.right-padding}
 label-charging =  %percentage%%
 
 format-full = <label-full>
-label-full = 
+label-full =  %percentage%%
+format-full-background = ${colors.background}
+format-full-padding = ${opts.right-padding}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -73,6 +97,7 @@ ramp-capacity-4 = 
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:64:...%
+format-padding = ${opts.right-padding}
 
 [module/i3]
 type = internal/i3
@@ -81,22 +106,23 @@ index-sort = true
 wrapping-scroll = true
 strip-wsnumbers = true
 
+background = ${colors.primary}
+
 label-mode = %mode%
 label-mode-padding = 4
 label-mode-foreground = ${colors.foreground}
 label-mode-background = ${colors.primary}
 
 label-focused = %name%
-label-focused-background = ${colors.background-alt}
-label-focused-underline = ${colors.primary}
+label-focused-background = ${colors.primary}
 label-focused-padding = 4
 
 label-unfocused = %name%
+label-unfocused-background = ${colors.background}
 label-unfocused-padding = 4
 
 label-visible = V %index%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-background}
 label-visible-padding = ${self.label-focused-padding}
 
 label-urgent = 
@@ -108,7 +134,8 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #00000000
+format-padding = ${opts.right-padding}
+format-background = ${colors.background}
 label = %percentage%%
 
 [module/memory]
@@ -116,7 +143,8 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #00000000
+format-padding = ${opts.right-padding}
+format-background = ${colors.background}
 label = %percentage_used%%
 
 [module/date]
@@ -131,7 +159,8 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #00000000
+format-background = ${colors.background}
+format-padding = ${opts.right-padding}
 
 label = %date% %time%
 
@@ -141,70 +170,42 @@ thermal-zone = 0
 warn-temperature = 55
 
 format = <ramp> <label>
-format-underline = #00000000
+format-padding = ${opts.right-padding}
+format-background = ${colors.background}
+
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+format-warn-underline = ${colors.primary}
+format-warn-padding = ${opts.right-padding}
+format-warn-background = ${self.format-background}
 
 label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.foreground}
-label-warn-background = ${colors.alert}
-label-warn-padding = 2
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
-[module/powermenu]
-type = custom/menu
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.foreground}
-label-close = cancel
-label-close-foreground = ${colors.primary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = reboot
-
-menu-2-0 = power off
-menu-2-0-exec = poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
-
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
+format-volume = <ramp-volume> <label-volume>
+format-volume-padding = ${opts.right-padding}
+format-volume-background = ${colors.background}
+
+format-muted-padding = ${opts.right-padding}
+format-muted-background = ${colors.background}
+
+label-volume = %percentage%%
 label-volume-foreground = ${colors.foreground}
 
-format-muted-foreground = ${colors.foreground-alt}
 label-muted = 婢
+label-muted-foreground = ${colors.foreground-alt}
 
-bar-volume-width = 16
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = true
-bar-volume-indicator = |
-bar-volume-fill = –
-bar-volume-empty = –
+ramp-volume-0 = 奄
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
 
 [settings]
 screenchange-reload = true
